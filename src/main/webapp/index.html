@@ -10,20 +10,20 @@
 <body>
     <h1>登录系统</h1>
     <hr>
-<!--    <form>-->
+    <form method="post" action = "login">
         <div>
             <label for="username-input">
-                <input type="text" id="username-input" placeholder="Username">
+                <input type="text" id="username-input" placeholder="Username" name="username">
             </label>
         </div>
         <div>
             <label>
-                <input id = "password-input" type="password" placeholder="Password" oninput="checkLegal()">
+                <input id = "password-input" type="password" placeholder="Password" oninput="checkLegal()" name="password">
             </label>
         </div>
         <div>
-            <button onclick="net()"> login</button>
+            <button> login</button>
         </div>
-<!--    </form>-->
+    </form>
 </body>
 </html>
