@@ -41,6 +41,11 @@
             <artifactId>lombok</artifactId>
             <version>1.18.42</version>
         </dependency>
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis</artifactId>
+            <version>3.5.19</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -51,5 +56,11 @@
                 <version>3.4.0</version>
             </plugin>
         </plugins>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+            </resource>
+        </resources>
     </build>
+
 </project>
