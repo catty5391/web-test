@@ -1,0 +1,40 @@
+body {
+    text-align : center;
+    margin : 0;
+}
+
+
+input {
+    border : 0;
+    background: #e7e2e2;
+    line-height: 40px;
+    border-radius: 20px;
+    padding : 0 20px 0 20px;
+    width : 250px;
+    font-size: 15px;
+    margin-top: 20px;
+}
+
+input:focus {
+    outline : 0;
+}
+
+button {
+    margin-top: 60px;
+    border-radius:30px;
+    border: 0;
+    background: #d3d3fb;
+    width : 100px;
+    height: 35px;
+    font-size: 15px;
+    box-shadow: 0 0 5px #9a9ac8;
+}
+
+button:focus {
+    background: #7777ba;
+}
+
+.illegal-pwd {
+    border: red 1px solid !important;
+    box-shadow: 0 0 5px red;
+}
