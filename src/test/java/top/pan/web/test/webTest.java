@@ -16,17 +16,5 @@ public class webTest {
 
     @Test
     public void test1(){
-        try {
-            sqlSessionFactory = new SqlSessionFactoryBuilder().build(Resources.getResourceAsStream("mybatis-config.xml"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        try(SqlSession session = sqlSessionFactory.openSession(true)){
-            Mapper mapper = session.getMapper(Mapper.class);
-            Student student = mapper.selectStudentBySid(6);
-            System.out.println(student);
-        }
-
     }
 }

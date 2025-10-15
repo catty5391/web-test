@@ -10,9 +10,11 @@ import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+import top.pan.web.entity.User;
 import top.pan.web.mapper.Mapper;
 
 import java.io.IOException;
+import java.util.Map;
 
 @Log
 @WebServlet(value = "/login", loadOnStartup = 1)
@@ -26,16 +28,34 @@ public class LoginServlet extends HttpServlet {
             e.printStackTrace();
         }
 
-        try(SqlSession session = sqlSessionFactory.openSession(true)){
-            session.getMapper(Mapper.class);
-        }
+
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        final String username = req.getParameter("username");
-        final String password = req.getParameter("password");
-        System.out.println(password);
+        Mapper mapper;
+
+
+
+        resp.setContentType("text/html");
+        Map<String, String[]> parameterMap = req.getParameterMap();
+        if (parameterMap.containsKey("username") && parameterMap.containsKey("password")){
+            try(SqlSession session = sqlSessionFactory.openSession(true)){
+                String username = req.getParameter("username");
+                String password = req.getParameter("password");
+                mapper = session.getMapper(Mapper.class);
+                User user = mapper.checkoutLogin(username, password);
+                if(user != null){
+                    resp.getWriter().write("登录成功");
+                }else{
+                    resp.getWriter().write("密码或账号错误，请重试");
+                }
+            }
+        }else{
+            resp.getWriter().write("没有返回密码或账号");
+        }
+
     }
 }
+
 
