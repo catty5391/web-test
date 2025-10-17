@@ -7,8 +7,15 @@ function checkLegal(){
     }
 }
 
-function net(){
+
+
+function updateTime(){
     let xhr = new XMLHttpRequest();
-    xhr.open('get', 'https://www.baidu.com');
+    xhr.onreadystatechange = function (){
+        if (xhr.readyState === 4 && xhr.status === 200){
+            document.getElementById('time').innerText = xhr.responseText
+        }
+    };
+    xhr.open('get', 'time', true);
     xhr.send();
 }

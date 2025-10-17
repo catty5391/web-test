@@ -24,6 +24,11 @@
         <div>
             <button > login</button>
         </div>
+        <div>
+            <label>
+                <input type="checkbox" placeholder="是否记住用户名，密码" name="rememberMe">
+            </label>
+        </div>
     </form>
     <hr>
     <form method = 'post' action="file" enctype="multipart/form-data">
@@ -34,5 +39,11 @@
             <button>上传文件</button>
         </div>
     </form>
+
+    <hr>
+    <div id="time"></div>
+    <button onclick="updateTime()">获取当前时间</button>
+    <script>updateTime()</script>
+
 </body>
 </html>
